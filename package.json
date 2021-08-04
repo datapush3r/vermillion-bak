@@ -1,0 +1,21 @@
+{
+    "name": "vermillion",
+    "mastertemplate": "boilerplate-code-django-dashboard",
+    "version": "1.0.1",
+    "description": "",
+    "scripts": {},
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/cultbepis/vermillion"
+    },
+    "bugs": {
+        "url": "https://github.com/cultbepis/vermillion/issues",
+        "email": "timwnorris@gmail.com"
+    },
+    "author": "CULTBEPIS",
+    "engines": {
+        "node": ">=10.0.0"
+    },
+    "dependencies": {},
+    "devDependencies": {}
+}

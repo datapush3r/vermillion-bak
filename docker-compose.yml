@@ -1,0 +1,10 @@
+version: '3'
+services:
+  app:
+    restart: always
+    env_file: .env
+    build: .
+    ports:
+      - "80:80"
+    volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock:ro"

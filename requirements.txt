@@ -1,0 +1,14 @@
+asgiref
+autopep8
+django==3.2.4
+pycodestyle
+pytz
+sqlparse
+Unipath
+dj-database-url
+python-decouple
+gunicorn
+whitenoise
+docker==5.0.0
+django-bootstrap4==3.0.1
+six==1.16.0

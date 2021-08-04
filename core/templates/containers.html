@@ -1,0 +1,101 @@
+{% extends 'layouts/base.html' %}
+
+{% block title %} Tables {% endblock title %}
+
+{% block content %}
+
+    <!-- Header -->
+    <div class="header bg-gradient-primary pb-8 pt-5 pt-md-8">
+      <div class="container-fluid">
+        <div class="header-body">
+        </div>
+          <!-- Card stats -->
+          <div class="row">
+            <form class="form-inline">
+              <div class="form-group mx-sm-3 mb-2">
+                <label for="inputPassword2" class="sr-only">docker-hub-image-name</label>
+                <input type="password" class="form-control" id="inputPassword2" placeholder="docker-hub-image-name">
+              </div>
+              <button type="submit" class="btn btn-primary mb-2">Create</button>
+            </form>
+      </div>
+    </div>
+  </div>
+
+    <div class="container-fluid mt--7">
+
+      <!-- Table -->
+      <div class="row">
+        <div class="col">
+          <div class="card shadow">
+            <div class="card-header border-0">
+              <h3 class="mb-0">Containers</h3>
+            </div>
+            <div class="table-responsive">
+              <table class="table align-items-center table-flush">
+                <thead class="thead-light">
+                  <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col">ID</th>
+                    <th scope="col">Ports</th>
+                    <th scope="col">Status</th>
+                    <th scope="col">Operation</th>
+                  </tr>
+                </thead>
+                <tbody>
+                {% if error %}
+                  <p>{{ error }}</p>
+                  {% elif container_data %}
+                  {% for container in container_data %}
+                  <tr>
+                    <th scope="row">
+                      <div class="media align-items-center">
+                        <div class="media-body">
+                          <span class="mb-0 text-sm">{{ container.name }}</span>
+                        </div>
+                      </div>
+                    </th>
+                    <td>
+                      {{ container.id }}
+                    </td>
+                    <td> 
+                      {{ container.ports }}
+                    </td>
+                    <td> 
+                      <span class="badge badge-dot"><i class="bg-success"></i> {{ container.status }} </span>
+                    </td>
+                    <td> 
+                      <button type="button" class="btn-icon-clipboard" data-clipboard-text="button-pause">
+                        <div>
+                          <i class="ni ni-button-pause"></i>
+                        </div>
+                      </button>
+                    </td>
+                  </tr>
+                  {% endfor %}
+                  {% else %}
+                  <tr>
+                    <th scope="row">
+                      <div class="media align-items-center">
+                        <div class="media-body">
+                          <span class="mb-0 text-sm">There are no containers.  There is only Zuul.</span>
+                        </div>
+                      </div>
+                    </th>
+              {% endif %}
+
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {% include "includes/footer.html" %}
+
+    </div>
+
+{% endblock content %}
+
+<!-- Specific JS goes HERE --> 
+{% block javascripts %}{% endblock javascripts %}
